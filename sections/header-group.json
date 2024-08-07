@@ -14,7 +14,7 @@
     "banner-top": {
       "type": "banner-top",
       "settings": {
-        "bannertop_image": "shopify:\/\/shop_images\/banner_1-webp.webp",
+        "bannertop_image": "shopify:\/\/shop_images\/11_7e089c8a-bdc1-41bd-b6e4-10e735683ac9.jpg",
         "bannertop_link": ""
       }
     },
@@ -321,7 +321,6 @@
         "padding_block_m": "10px 0",
         "color_bg": "#ffffff",
         "color_header_text": "#222222",
-        "logo": "shopify:\/\/shop_images\/LOVMOR.jpg",
         "logo_width": 90,
         "sticky_header_type": "on-scroll-up",
         "menu": "main-menu"
