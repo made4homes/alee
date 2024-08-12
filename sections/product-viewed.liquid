@@ -50,17 +50,20 @@
 				<div class="product-card__image-wrapper">
 					<a class="product-card__image-link" href="${url}">
 						<span {{if images[1]}} class="img-primary"{{/if}}>
-							<img class="img-fluid lazyloaded" alt="${title}" src="${Shopify.Products.resizeImage(featured_image, "medium")}" />
+							<img class="img-fluid" src="${Shopify.Products.resizeImage(featured_image, "large")}" />
 						</span>
 						{{if images[1]}}
 							<span class="img-secondary position-absolute">
-								<img class="img-fluid lazyloaded" alt="${title}" src="${images[1]}" />
+								<img class="img-fluid" src="${images[1]}" />
 							</span>
 						{{/if}}
 					</a>
 				</div>
 				<div class="product-card__content mt-lg-1 pt-2 pt-md-3">
 					<div class="product-card__content--inner">
+						<h6 class="product-card__name line-clamp-2 mb-1">
+							<a class="line-title fw-normal" href="${ url }">${ title }</a>
+						</h6>
 						<div class="product-group-price ff-special d-flex align-items-center">
 							<div class="product-price">${Shopify.formatMoney(price)}</div>
 							{{if compare_at_price && compare_at_price > price }}

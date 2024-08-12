@@ -1224,6 +1224,14 @@ vela.newsletter = function() {
     vela.setCookie('vela_newsletter_popup', 1, 30);
   });
 };
+vela.velaBannerTop = function () {
+  cBannerTop = vela.getCookie('velaBannerTop');
+  if (cBannerTop == 1) $('#bannerTop').remove();
+  $('#bannerTop .btn-bannerTop').on('click', function() {
+    vela.setCookie('velaBannerTop', 1, 30);
+    $('#bannerTop').remove();
+  });
+};
 vela.swatchProduct = function() {
   $('.product-card__swatch--list .more_option').on( "click", function() {
     $(this).toggleClass('more_option_active');
@@ -1348,9 +1356,9 @@ vela.preLoading = function() {
     function preLoadingImage(url) {
       var imgPreLoading = new Image();
       $(imgPreLoading).on('load', function() {
-        // runPreLoading();
+        runPreLoading();
       }).on('error', function() {
-        // runPreLoading();
+        runPreLoading();
       }).attr('src', url);
     }
 
@@ -1490,21 +1498,22 @@ vela.flytocart = function(){
   }
 };
 vela.init = function() {
-  // vela.preLoading();
+  vela.preLoading();
   vela.initializeEvents();
   vela.setBreakpoints();
   if(!$('body').hasClass('template-cart')) {
     vela.cartInit();
   }
   vela.slideshow();
-  // vela.slickCarousel();
+  vela.slickCarousel();
   vela.countdown();
   vela.cookieConsent();
   vela.newsletter();
   vela.customNumberInput();
   vela.accordion();
   vela.gallery();
-  vela.productLoadMore(); 
+  vela.productLoadMore();
+  vela.velaBannerTop();
   vela.swatchProduct();
   //vela.flytocart();
   if (vela.settings.enableQuickView) {

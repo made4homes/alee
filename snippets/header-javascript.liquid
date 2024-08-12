@@ -3,6 +3,7 @@
   vela.strings = {
     shop_money_with_currency_format: {{ shop.money_with_currency_format | strip_html | json }},
     shop_money_format: {{ shop.money_format | strip_html | json }},
+    currency: {{ shop.currency | json }},
     moneyFormat: {{ shop.money_format | json }},
     zoomClose: {{ 'products.zoom.close' | t | json }},
     zoomPrev: {{ 'products.zoom.prev' | t | json }},
@@ -26,9 +27,11 @@
     add_to_wishlist: '{{ 'products.product.add_to_wishlist' | t }}',
     remove_wishlist: '{{ 'products.product.remove_wishlist' | t }}'
   };
-  vela.settings = { 
+  vela.settings = {
+    currencies: {{ settings.show_multiple_currencies | json }},
     cartType: {{ settings.cart_type | json }},
-    enableReview: {{ settings.product_reviews_enable | json }}, 
+    enableReview: {{ settings.product_reviews_enable | json }},
+    enablePreLoading: {{ settings.preloading | json }},
     enableQuickView: {{ settings.quickview_enable | json }},
     quickViewVariantType: {{ settings.quickview_variant_selector | json }},
     quickViewColorSwatch: {{ settings.quickview_variant_color_enable | json }},
@@ -51,10 +54,9 @@
       shippingCalcMessError: {{ 'sections.cart.estimate_shipping_mess_error' | t | json }}
     {%- endif -%}
   };
-  
+  vela.loading = '<div class="vela-loading"><div class="vela-loading__icon"><span></span><span></span><span></span><span></span></div></div>';
 </script>
 {{ 'shopify_common.js' | shopify_asset_url | script_tag }}
 {{ 'vendor.min.js' | asset_url | script_tag }}
-
 {%- if settings.cart_shipping_enable -%}{{ 'estimate-shipping.min.js' | asset_url | script_tag }}{%- endif -%}
 <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
